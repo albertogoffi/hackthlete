@@ -34,13 +34,25 @@ public class WorkoutCreator {
         }
 
 
-        warmupDuration
-
         return null;
     }
 
     private double getMinimumTravelTime(LatLng start, LatLng end) {
         double travelTimeJogging = LocationUtils.getTravelTime(start, end, By.JOGGING);
+
         
+    }
+
+    private PubliBikeStation getNearestPubliBikeStation(LatLng position){
+        double min = Double.MAX_VALUE;
+        PubliBikeStation nearest = null;
+        for(PubliBikeStation station : stations){
+           double dist = LocationUtils.getTravelTime(position, station.getPosition(), By.JOGGING);
+           if(dist < min){
+               nearest = station;
+               min = dist;
+           }
+        }
+        return nearest;
     }
 }
