@@ -1,9 +1,11 @@
 package com.outhlete.outhlete.algorithm;
 
-import com.google.maps.android.SphericalUtil;
+import com.google.android.gms.maps.model.LatLng;
 import com.outhlete.outhlete.domain.Exercise;
 import com.outhlete.outhlete.domain.PubliBikeStation;
 import com.outhlete.outhlete.domain.Workout;
+import com.outhlete.outhlete.utils.By;
+import com.outhlete.outhlete.utils.LocationUtils;
 
 import java.util.List;
 
@@ -16,10 +18,29 @@ public class WorkoutCreator {
         this.stations = stations;
     }
 
-
-
     // TODO implement
-    public Workout makeWorkout(int duration) {
+    public Workout makeWorkout(LatLng start, int duration) {
+        // FIXME this can be inaccurate due to rounding.
+        int warmupDuration = (int)(duration * 0.1);
+        int muscleDuration = (int)(duration * 0.4);
+        int cardioDuration = (int)(duration * 0.3);
+        int stretchingDuration = (int)(duration * 0.1);
+        int coolDownDuration = duration - warmupDuration - muscleDuration - cardioDuration - stretchingDuration;
+
+        // Phase 1 --
+        // ...
+        for (final Exercise exercise : exercises) {
+            getMinimumTravelTime(start, exercise.getStartPosition());
+        }
+
+
+        warmupDuration
+
         return null;
+    }
+
+    private double getMinimumTravelTime(LatLng start, LatLng end) {
+        double travelTimeJogging = LocationUtils.getTravelTime(start, end, By.JOGGING);
+        
     }
 }
