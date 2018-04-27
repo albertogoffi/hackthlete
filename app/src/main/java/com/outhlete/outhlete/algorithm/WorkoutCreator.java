@@ -7,6 +7,7 @@ import com.outhlete.outhlete.domain.Workout;
 import com.outhlete.outhlete.utils.By;
 import com.outhlete.outhlete.utils.LocationUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class WorkoutCreator {
@@ -20,6 +21,8 @@ public class WorkoutCreator {
 
     // TODO implement
     public Workout makeWorkout(LatLng start, int duration) {
+        List<Exercise> workoutExercises = new ArrayList<>();
+
         // FIXME this can be inaccurate due to rounding.
         int warmupDuration = (int)(duration * 0.1);
         int muscleDuration = (int)(duration * 0.4);
@@ -33,26 +36,35 @@ public class WorkoutCreator {
             getMinimumTravelTime(start, exercise.getStartPosition());
         }
 
-
-        return null;
+        return new Workout(workoutExercises);
     }
 
     private double getMinimumTravelTime(LatLng start, LatLng end) {
         double travelTimeJogging = LocationUtils.getTravelTime(start, end, By.JOGGING);
-
-        
+        double travelTimeUsingPubliBike = getTravelTimeUsingPubliBike(start, end);
+        return Math.min(travelTimeJogging, travelTimeUsingPubliBike);
     }
 
-    private PubliBikeStation getNearestPubliBikeStation(LatLng position){
-        double min = Double.MAX_VALUE;
-        PubliBikeStation nearest = null;
-        for(PubliBikeStation station : stations){
-           double dist = LocationUtils.getTravelTime(position, station.getPosition(), By.JOGGING);
-           if(dist < min){
-               nearest = station;
-               min = dist;
+    private double getTravelTimeUsingPubliBike(LatLng start, LatLng end) {
+        PubliBikeStation nearestToStart = getNearestPubliBikeStation(start);
+        PubliBikeStation nearestToEnd = getNearestPubliBikeStation(end);
+
+        double travelTimeJoggingFromStart = LocationUtils.getTravelTime(start, nearestToStart.getPosition(), By.JOGGING);
+        double travelTimeBiking = LocationUtils.getTravelTime(nearestToStart.getPosition(), nearestToEnd.getPosition(), By.BIKING);
+        double travelTimeJoggingToEnd = LocationUtils.getTravelTime(start, nearestToEnd.getPosition(), By.JOGGING);
+        return travelTimeJoggingFromStart + travelTimeBiking + travelTimeJoggingToEnd;
+    }
+
+    private PubliBikeStation getNearestPubliBikeStation(LatLng position) {
+        double minTravelTime = Double.MAX_VALUE;
+        PubliBikeStation nearestStation = null;
+        for (final PubliBikeStation station : stations) {
+           double travelTime = LocationUtils.getTravelTime(position, station.getPosition(), By.JOGGING);
+           if (travelTime < minTravelTime){
+               nearestStation = station;
+               minTravelTime = travelTime;
            }
         }
-        return nearest;
+        return nearestStation;
     }
 }
