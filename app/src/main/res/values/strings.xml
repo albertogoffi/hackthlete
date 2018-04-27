@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Outhlete</string>
+    <string name="title_activity_workout_overview">Workout Overview</string>
 </resources>

@@ -1,11 +1,15 @@
 package com.outhlete.outhlete
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.SeekBar
 import kotlinx.android.synthetic.main.activity_configure_workout.*
 
-class ConfigureWorkout : AppCompatActivity() {
+const val EXTRA_LOCATION = "com.outhlete.USER_LOCATION"
+
+class ConfigureWorkoutActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,5 +25,13 @@ class ConfigureWorkout : AppCompatActivity() {
                 durationTextView.text = "$duration"
             }
         })
+    }
+
+    fun createWorkout(view: View) {
+        val location = locationEditText.text
+        val intent = Intent(this, WorkoutOverviewActivity::class.java).apply {
+            putExtra(EXTRA_LOCATION, location)
+        }
+        startActivity(intent)
     }
 }
