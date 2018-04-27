@@ -1,9 +1,8 @@
 package com.outhlete.outhlete.domain;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-class Workout {
+public class Workout {
     private final List<Exercise> exercises;
 
     public Workout(final List<Exercise> exercises) {
