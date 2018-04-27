@@ -1,0 +1,20 @@
+package com.outhlete.outhlete.domain;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+class Workout {
+    private final List<Exercise> exercises;
+
+    public Workout(final List<Exercise> exercises) {
+        this.exercises = exercises;
+    }
+
+    public int getTotalDuration() {
+        int total = 0;
+        for (final Exercise exercise : exercises) {
+            total += exercise.getDuration();
+        }
+        return total;
+    }
+}
