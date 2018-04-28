@@ -42,7 +42,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.outhlete.outhlete.ConfigureWorkoutActivity" />
         </activity>
-        <activity android:name=".ExerciseActivity"></activity>
     </application>
 
 </manifest>
