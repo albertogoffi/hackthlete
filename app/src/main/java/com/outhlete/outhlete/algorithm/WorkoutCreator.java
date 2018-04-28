@@ -19,7 +19,7 @@ import java.util.Set;
 
 /*
 WORKOUT CONSTRAINTS:
-5 phases: warmup (10%), streatching (10%), muscles(40%), cardio(30%), cooldown(10%)
+5 phases: warmup (10%), streatching (10%), muscles(45%), cardio(25%), cooldown(10%)
 every phase has a accepted time range of +-15%
 every muscle must be trained at least once (legs count as trained once by default).
 If there is more time i can train some muscles twice starting from the big ones (legs, chest, back)
@@ -30,18 +30,18 @@ public class WorkoutCreator {
     private final List<Exercise> exercises;
     private final List<PubliBikeStation> stations;
 
-    public WorkoutCreator(final List<Exercise> exercises, final List<PubliBikeStation> stations) {
+    public WorkoutCreator() {
         this.exercises = FileUtils.loadExercisesFromCSV();
         this.stations = FileUtils.loadPubliBikeStationsFromCSV();
     }
 
     public Workout makeWorkout(LatLng start, int duration) {
         List<Exercise> workoutExercises = new ArrayList<>();
-        int scaledDuration = (int)(duration - (duration * 0.2));
+        int scaledDuration = (int)(duration);
         // FIXME this can be inaccurate due to rounding.
-        int warmupDuration = (int)(scaledDuration * 0.1);
-        int muscleDuration = (int)(scaledDuration * 0.4);
-        int cardioDuration = (int)(scaledDuration * 0.3);
+        int warmupDuration = Math.max(5, (int)(scaledDuration * 0.1));
+        int muscleDuration = (int)(scaledDuration * 0.45);
+        int cardioDuration = (int)(scaledDuration * 0.25);
         int stretchingDuration = (int)(scaledDuration * 0.1);
         int coolDownDuration = scaledDuration - warmupDuration - muscleDuration - cardioDuration - stretchingDuration;
 
@@ -132,6 +132,7 @@ public class WorkoutCreator {
                 }
                 workoutExercises.add(selectedWarmup);
                 workoutExercises.addAll(stretchingExercises);
+                workoutExercises.addAll(muscleExercises);
                 workoutExercises.add(selectedCardio);
                 workoutExercises.addAll(newMuscleExercise);
                 workoutExercises.add(possibleCooldowns.get(0));
@@ -183,8 +184,8 @@ public class WorkoutCreator {
 
     private List<Exercise> getPossibleJoggingExercises(final LatLng startPosition, Set<LatLng> targetPositions, final int duration, Goal goal){
 
-        int durationMax = (int)(duration + (duration * 0.15));
-        int durationMin = (int)(duration - (duration * 0.15));
+        int durationMax = (int)(duration + (duration * 0.3)+0.5);
+        int durationMin = (int)(duration - (duration * 0.3));
 
         List<Exercise> joggingExercises = new ArrayList<>();
         for(LatLng position:targetPositions){
@@ -211,8 +212,8 @@ public class WorkoutCreator {
 
     private List<Exercise> getPossibleCardioExercises(final LatLng startPosition, Set<LatLng> targetPositions, final int duration){
 
-        int durationMax = (int)(duration + (duration * 0.15));
-        int durationMin = (int)(duration - (duration * 0.15));
+        int durationMax = (int)(duration + (duration * 0.3)+0.5);
+        int durationMin = (int)(duration - (duration * 0.3));
 
         List<Exercise> cardioExercises = new ArrayList<>();
         for(LatLng possibleExercisePosition:targetPositions){
@@ -235,13 +236,15 @@ public class WorkoutCreator {
 
     private List<Exercise> getExercisesThatFitGoals(final LatLng startPosition, List<Goal> goalsToCover){
 
+        List<Goal> goalsToCoverCopy = new ArrayList<>(goalsToCover);
         List<Exercise> availableExercisesHere = new ArrayList<>();
         //some randomness
         Collections.shuffle(exercises);
 
         for(Exercise exercise:exercises){
-            if(exercise.getStartPosition().equals(startPosition) && goalsToCover.contains(exercise.getGoal())){
+            if(exercise.getStartPosition().equals(startPosition) && goalsToCoverCopy.contains(exercise.getGoal())){
                 availableExercisesHere.add(exercise);
+                goalsToCoverCopy.remove(exercise.getGoal());
             }
         }
         return availableExercisesHere;

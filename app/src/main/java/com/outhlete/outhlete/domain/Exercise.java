@@ -66,18 +66,21 @@ public class Exercise {
 
         //TODO: fix description and image URL
         double travelTimeJogging = 0;
+        String name;
         switch(goal){
             case WARM_UP:
             case COOL_DOWN:
                  travelTimeJogging = LocationUtils.getTravelTime(start, end, By.JOGGING);
+                 name = "Jogging";
                  break;
             case CARDIO:
                 travelTimeJogging = LocationUtils.getTravelTime(start, end, By.RUNNING);
+                name = "Running";
                 break;
             default:
                 throw new RuntimeException("error");
         }
-        Exercise running = new Exercise("Jogging", "Jog until point", start,  end, (int)travelTimeJogging, null, goal);
+        Exercise running = new Exercise(name, "Jog until point", start,  end, (int)travelTimeJogging, null, goal);
         return running;
     }
 

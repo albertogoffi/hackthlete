@@ -16,4 +16,8 @@ public class Workout {
         }
         return total;
     }
+
+    public List<Exercise> getExercises(){
+        return this.exercises;
+    }
 }

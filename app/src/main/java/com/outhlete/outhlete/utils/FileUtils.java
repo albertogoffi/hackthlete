@@ -1,14 +1,12 @@
 package com.outhlete.outhlete.utils;
 
-import android.content.res.Resources;
-
 import com.google.android.gms.maps.model.LatLng;
 import com.opencsv.CSVReader;
-import com.outhlete.outhlete.R;
 import com.outhlete.outhlete.domain.Exercise;
 import com.outhlete.outhlete.domain.Goal;
 import com.outhlete.outhlete.domain.PubliBikeStation;
 
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +16,11 @@ public class FileUtils {
     public static List<Exercise> loadExercisesFromCSV(){
         List<Exercise> exercises = new ArrayList<>();
         try{
-            CSVReader reader = new CSVReader(new InputStreamReader(Resources.getSystem().openRawResource(R.raw.exercises)));//Specify asset file name
+            String file = "res/raw/exercises.csv"; // res/raw/test.txt also work.
+            InputStream in = FileUtils.class.getClassLoader().getResourceAsStream(file);
+           // CSVReader reader = new CSVReader(new InputStreamReader(Resources.getSystem().openRawResource(R.raw.exercises)));//Specify asset file name
+            CSVReader reader = new CSVReader(new InputStreamReader(in));//Specify asset file name
+
             //skip first line
             reader.readNext();
             String[] line;
@@ -70,7 +72,12 @@ public class FileUtils {
     public  static List<PubliBikeStation> loadPubliBikeStationsFromCSV(){
         List<PubliBikeStation> stations = new ArrayList<>();
         try{
-            CSVReader reader = new CSVReader(new InputStreamReader(Resources.getSystem().openRawResource(R.raw.publibike_stations)));//Specify asset file name
+            String file = "res/raw/publibikestations.csv"; // res/raw/test.txt also work.
+            InputStream in = FileUtils.class.getClassLoader().getResourceAsStream(file);
+            // CSVReader reader = new CSVReader(new InputStreamReader(Resources.getSystem().openRawResource(R.raw.exercises)));//Specify asset file name
+            CSVReader reader = new CSVReader(new InputStreamReader(in));//Specify asset file name
+
+           // CSVReader reader = new CSVReader(new InputStreamReader(Resources.getSystem().openRawResource(R.raw.publibikestations)));//Specify asset file name
             //skip first line
             reader.readNext();
             String[] line;
