@@ -5,7 +5,7 @@ public enum Goal {
     STRETCHING_TOP_BODY("Stretching", "Lower body"),
     STRETCHING_LOW_BODY("Stretching", "Upper body"),
     STRETCHING_CORE_BODY("Stretching", "Core"),
-    CARDIO("Cardio", "Full body"),,
+    CARDIO("Cardio", "Full body"),
     WARM_UP ("Warm up", "Full body"),
     ABS ("Muscle growth", "Abs"),
     LEGS("Muscle growth", "Legs"),

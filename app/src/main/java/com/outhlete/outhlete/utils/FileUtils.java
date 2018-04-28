@@ -24,7 +24,11 @@ public class FileUtils {
             //skip first line
             reader.readNext();
             String[] line;
+
             while ((line = reader.readNext()) != null) {
+                if(line.length == 0)
+                        continue;
+
                 double startLat = Double.valueOf(line[2]);
                 double startLng = Double.valueOf(line[3]);
                 double endLat = Double.valueOf(line[4]);
