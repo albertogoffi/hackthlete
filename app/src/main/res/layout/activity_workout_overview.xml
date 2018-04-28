@@ -13,5 +13,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|bottom"
         android:text="Start Workout"
-        android:onClick="starWorkout"/>
+        android:onClick="startWorkout"/>
 </fragment>
