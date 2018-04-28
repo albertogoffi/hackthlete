@@ -213,7 +213,7 @@ public class WorkoutCreator {
     private List<Exercise> getPossibleCardioExercises(final LatLng startPosition, Set<LatLng> targetPositions, final int duration){
 
         int durationMax = (int)(duration + (duration * 0.3)+0.5);
-        int durationMin = (int)(duration - (duration * 0.3));
+        int durationMin = (int)(duration - (duration * 0.4));
 
         List<Exercise> cardioExercises = new ArrayList<>();
         for(LatLng possibleExercisePosition:targetPositions){
