@@ -1,5 +1,7 @@
 package com.outhlete.outhlete.domain;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,5 +30,18 @@ public class Workout {
 
     public List<Exercise> getExercises(){
         return this.exercises;
+    }
+
+    public List<LatLng> getWayPoints(){
+        List<LatLng> wayPoints = new ArrayList<>();
+        for(Exercise exercise:this.exercises){
+            if(wayPoints.isEmpty() || !wayPoints.get(wayPoints.size()-1).equals(exercise.getStartPosition())){
+                wayPoints.add(exercise.getStartPosition());
+            }
+            if(!wayPoints.get(wayPoints.size()-1).equals(exercise.getEndPosition())){
+                wayPoints.add(exercise.getEndPosition());
+            }
+        }
+        return wayPoints;
     }
 }

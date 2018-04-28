@@ -52,11 +52,6 @@ public class Exercise {
         return goal;
     }
 
-    public boolean isPositionAgnostic(){
-
-        return this.endPosition == null && this.startPosition == null;
-    }
-
     @Override
     public String toString() {
         return name;
