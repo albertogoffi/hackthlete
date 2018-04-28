@@ -44,24 +44,26 @@ class WorkoutOverviewActivity : FragmentActivity(), OnMapReadyCallback {
      * installed Google Play services and returned to the app.
      */
     override fun onMapReady(googleMap: GoogleMap) {
-        locationProvider = LocationServices.getFusedLocationProviderClient(this)
+        val location = intent.getParcelableExtra<LatLng?>(ConfigureWorkoutActivity.EXTRA_LOCATION)
+        if (location == null) {
+            val locationProvider = LocationServices.getFusedLocationProviderClient(this)
 
-        if (ContextCompat.checkSelfPermission(this,
-                   Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            // Add a marker in Sydney and move the camera
-            locationProvider.lastLocation.addOnSuccessListener {
-                val location = LatLng(it.latitude, it.longitude)
-                googleMap.addMarker(MarkerOptions().position(location).title("START"))
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15f))
+            if (ContextCompat.checkSelfPermission(this,
+                            Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                locationProvider.lastLocation.addOnSuccessListener {
+                    val newLocation = LatLng(it.latitude, it.longitude)
+                    googleMap.addMarker(MarkerOptions().position(newLocation).title("START"))
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newLocation, 15f))
+                }
             }
+        } else {
+            googleMap.addMarker(MarkerOptions().position(location).title("START"))
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15f))
         }
     }
 
     fun startWorkout(view: View) {
-//        Toast.makeText(view.context, "Not implemented yet!", Toast.LENGTH_LONG).show()
-        val intent = Intent(this, ExerciseActivity::class.java).apply {
-//            putExtra(EXTRA_LOCATION, location)
-        }
+        val intent = Intent(this, ExerciseActivity::class.java)
         startActivity(intent)
     }
 }
