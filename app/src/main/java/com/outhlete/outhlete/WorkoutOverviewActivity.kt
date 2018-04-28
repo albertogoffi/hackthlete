@@ -11,9 +11,11 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.maps.DirectionsApiRequest
 import com.google.maps.GeoApiContext
+import com.google.maps.GeocodingApi
 import com.google.maps.PendingResult
 import com.google.maps.android.PolyUtil
 import com.google.maps.model.DirectionsResult
@@ -55,17 +57,25 @@ class WorkoutOverviewActivity : FragmentActivity(), OnMapReadyCallback {
         directionsApi.mode(TravelMode.WALKING)
         directionsApi.alternatives(false)
         directionsApi.departureTime(DateTime.now())
-        directionsApi.origin(workout.exercises.first().encodedStarPosition())
-        directionsApi.destination(workout.exercises.first().encodedStarPosition())
+        directionsApi.origin(workout.exercises.first().encodedStartPosition())
+        directionsApi.destination(workout.exercises.last().encodedEndPosition())
 
-        val waypoints = workout.wayPoints
-        waypoints.removeAt(0)
-        waypoints.removeAt(waypoints.lastIndex)
+        val waypoints = workout.wayPoints.slice(1 until workout.wayPoints.lastIndex)
         directionsApi.waypoints(*waypoints.map { encodeLatLng(it) }.toTypedArray())
 
         val route = directionsApi.await().routes[0]
         val path = PolyUtil.decode(route.overviewPolyline.encodedPath)
         googleMap.addPolyline(PolylineOptions().addAll(path).color(Color.rgb(0, 102, 255)))
+
+        val waypointsButLast = workout.wayPoints.slice(0..workout.wayPoints.lastIndex)
+        for ((index, waypoint) in waypointsButLast.withIndex()) {
+            val position = com.google.maps.model.LatLng(waypoint.latitude, waypoint.longitude)
+            val reversedPosition = GeocodingApi.reverseGeocode(geoApiContext, position).await()[0]
+            googleMap.addMarker(MarkerOptions()
+                    .position(LatLng(waypoint.latitude, waypoint.longitude))
+                    .title("(${index + 1}) ${reversedPosition.formattedAddress}"))
+        }
+
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 14f))
     }
 
@@ -74,7 +84,7 @@ class WorkoutOverviewActivity : FragmentActivity(), OnMapReadyCallback {
         startActivity(intent)
     }
 
-    private fun Exercise.encodedStarPosition() = encodeLatLng(this.startPosition)
+    private fun Exercise.encodedStartPosition() = encodeLatLng(this.startPosition)
 
     private fun Exercise.encodedEndPosition() = encodeLatLng(this.endPosition)
 
