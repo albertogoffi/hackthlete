@@ -18,6 +18,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.outhlete.outhlete.R.id.map
 
 class WorkoutOverviewActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -27,8 +28,7 @@ class WorkoutOverviewActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_workout_overview)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        val mapFragment = supportFragmentManager
-                .findFragmentById(R.id.map) as SupportMapFragment
+        val mapFragment = supportFragmentManager.findFragmentById(map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
@@ -56,10 +56,10 @@ class WorkoutOverviewActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     fun startWorkout(view: View) {
-        Toast.makeText(view.context, "Not implemented yet!", Toast.LENGTH_LONG).show()
-//        val intent = Intent(this, WorkoutOverviewActivity::class.java).apply {
-////            putExtra(EXTRA_LOCATION, location)
-//        }
-//        startActivity(intent)
+//        Toast.makeText(view.context, "Not implemented yet!", Toast.LENGTH_LONG).show()
+        val intent = Intent(this, ExerciseActivity::class.java).apply {
+//            putExtra(EXTRA_LOCATION, location)
+        }
+        startActivity(intent)
     }
 }

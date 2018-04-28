@@ -37,11 +37,13 @@
 
         <activity
             android:name=".WorkoutOverviewActivity"
-            android:label="@string/title_activity_workout_overview">
+            android:label="@string/title_activity_workout_overview"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.outhlete.outhlete.ConfigureWorkoutActivity" />
         </activity>
+        <activity android:name=".ExerciseActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>
