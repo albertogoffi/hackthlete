@@ -1,19 +1,10 @@
 package com.outhlete.outhlete
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
-import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
-import android.support.v4.content.ContextCompat
 import android.view.View
-import android.widget.Toast
 import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -23,8 +14,6 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.outhlete.outhlete.R.id.map
 
 class WorkoutOverviewActivity : FragmentActivity(), OnMapReadyCallback {
-
-    private lateinit var locationProvider: FusedLocationProviderClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,21 +34,8 @@ class WorkoutOverviewActivity : FragmentActivity(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap) {
         val location = intent.getParcelableExtra<LatLng?>(ConfigureWorkoutActivity.EXTRA_LOCATION)
-        if (location == null) {
-            val locationProvider = LocationServices.getFusedLocationProviderClient(this)
-
-            if (ContextCompat.checkSelfPermission(this,
-                            Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                locationProvider.lastLocation.addOnSuccessListener {
-                    val newLocation = LatLng(it.latitude, it.longitude)
-                    googleMap.addMarker(MarkerOptions().position(newLocation).title("START"))
-                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newLocation, 15f))
-                }
-            }
-        } else {
-            googleMap.addMarker(MarkerOptions().position(location).title("START"))
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15f))
-        }
+        googleMap.addMarker(MarkerOptions().position(location!!).title("START"))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15f))
     }
 
     fun startWorkout(view: View) {
