@@ -21,7 +21,7 @@
     <View
         android:id="@+id/overlay"
         android:layout_width="0dp"
-        android:layout_height="250dp"
+        android:layout_height="280dp"
         android:alpha="0.6"
         android:background="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,14 +43,14 @@
             android:id="@+id/logo"
             android:layout_width="16pt"
             android:layout_height="16pt"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             app:srcCompat="@drawable/outhlete_logo" />
 
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="4dp"
             android:fontFamily="cursive"
             android:text="Outhlete"
             android:textAppearance="@android:style/TextAppearance.Material.Medium"
@@ -146,7 +146,7 @@
         android:id="@+id/create_workout_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="42dp"
+        android:layout_marginBottom="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:background="#55AB68"
