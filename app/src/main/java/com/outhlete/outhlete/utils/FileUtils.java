@@ -25,6 +25,7 @@ public class FileUtils {
             String[] line;
 
             while ((line = reader.readNext()) != null) {
+
                 if(line.length == 0) {
                     continue;
                 }
@@ -64,11 +65,15 @@ public class FileUtils {
                     default:
                         throw new RuntimeException("error");
                 }
+                if(line[7].trim().length()==0){
+                    throw new RuntimeException("Error. Missing image.");
+                }
                 Exercise exercise = new Exercise(line[0], line[1], start, end, Integer.valueOf(line[6]), line[7], goal);
                 exercises.add(exercise);
             }
         }catch(Exception e){
             e.printStackTrace();
+            throw new RuntimeException("Error");
         }
         return exercises;
     }

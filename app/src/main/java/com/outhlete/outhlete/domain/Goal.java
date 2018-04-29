@@ -21,6 +21,11 @@ public enum Goal {
         this.bodyPart = bodyPart;
     }
 
+    public String getDescription(){
+        return this.description;
+    }
 
-
+    public String getBodyPart(){
+        return this.bodyPart;
+    }
 }
