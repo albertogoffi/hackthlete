@@ -61,29 +61,32 @@ public class Exercise {
         double travelTimeJogging = 0;
         String name;
         String image;
+        String desc;
         switch(goal){
             case WARM_UP:
             case COOL_DOWN:
                  travelTimeJogging = LocationUtils.getTravelTime(start, end, By.JOGGING);
                  name = "Jogging";
                  image = "jogging.jpg";
+                 desc = "Run at a low pace from the current position to ";
                  break;
             case CARDIO:
                 travelTimeJogging = LocationUtils.getTravelTime(start, end, By.RUNNING);
                 name = "Running";
                 image = "cardio.jpg";
+                desc = "Run at a high pace from the current position to ";
                 break;
             default:
                 throw new RuntimeException("error");
         }
-        Exercise running = new Exercise(name, "Jog until point", start,  end, (int)travelTimeJogging, image, goal);
+        Exercise running = new Exercise(name, desc, start,  end, (int)travelTimeJogging, image, goal);
         return running;
     }
 
     public static Exercise buildBikingExercise(LatLng start, LatLng end, Goal goal){
 
         double travelTimeBiking = LocationUtils.getTravelTime(start, end, By.BIKING);
-        Exercise jogging = new Exercise("Biking", "Ride Bike until point", start,  end, (int)travelTimeBiking, "bike.jpg", goal);
+        Exercise jogging = new Exercise("Bike using PubliBike", "Ride Bike from the current position to ", start,  end, (int)travelTimeBiking, "bike.jpg", goal);
         return jogging;
     }
 }
