@@ -1,11 +1,13 @@
 package com.outhlete.outhlete
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
+import android.view.View
 import android.widget.Button
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -23,13 +25,13 @@ import com.google.maps.android.PolyUtil
 import com.google.maps.model.TravelMode
 import com.outhlete.outhlete.domain.Exercise
 import com.outhlete.outhlete.domain.Workout
+import kotlinx.android.synthetic.main.activity_configure_workout.*
 import kotlinx.android.synthetic.main.activity_exercise.*
 import org.joda.time.DateTime
 import java.util.concurrent.TimeUnit
 
 class ExerciseActivity : AppCompatActivity(), OnMapReadyCallback {
 
-    private lateinit var locationProvider: FusedLocationProviderClient
     private lateinit var workout: Workout
     private var index = 0
 
@@ -39,6 +41,13 @@ class ExerciseActivity : AppCompatActivity(), OnMapReadyCallback {
 
         workout = (this.application as App).workout
         index = intent.getIntExtra("index", 0)
+        if (index == workout.exercises.lastIndex) {
+            buttonNext.text = "Done! Get another workout!"
+            buttonNext.setOnClickListener {
+                val intent = Intent(this@ExerciseActivity, ConfigureWorkoutActivity::class.java)
+                startActivity(intent)
+            }
+        }
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -71,6 +80,13 @@ class ExerciseActivity : AppCompatActivity(), OnMapReadyCallback {
         googleMap.addMarker(MarkerOptions().position(path.last()).title("END"))
 
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(exercise.startPosition, 14f))
+    }
+
+    fun moveToNextExercise(view: View) {
+        val intent = Intent(this, ExerciseActivity::class.java).apply {
+            putExtra("index", index + 1)
+        }
+        startActivity(intent)
     }
 
     private fun Exercise.encodedStartPosition() = encodeLatLng(this.startPosition)
