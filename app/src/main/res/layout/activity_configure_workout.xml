@@ -11,7 +11,7 @@
         android:id="@+id/main_page_bg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:alpha="0.7"
+        android:alpha="0.8"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
     <View
         android:id="@+id/overlay"
         android:layout_width="0dp"
-        android:layout_height="250dp"
+        android:layout_height="280dp"
         android:alpha="0.6"
         android:background="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,29 +33,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="22dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         >
 
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="16pt"
-            android:layout_height="16pt"
-            android:layout_marginTop="8dp"
-            app:srcCompat="@drawable/outhlete_logo" />
+        <!--<ImageView-->
+            <!--android:id="@+id/logo"-->
+            <!--android:layout_width="16pt"-->
+            <!--android:layout_height="16pt"-->
+            <!--android:layout_marginTop="4dp"-->
+            <!--app:srcCompat="@drawable/outhlete_logo" />-->
 
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="4dp"
             android:fontFamily="cursive"
             android:text="Outhlete"
             android:textAppearance="@android:style/TextAppearance.Material.Medium"
-            android:textColor="@android:color/black"
-            android:textSize="36sp" />
+            android:textColor="#333333"
+            android:textSize="52sp" />
     </LinearLayout>
 
     <TextView
@@ -146,10 +146,10 @@
         android:id="@+id/create_workout_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="42dp"
+        android:layout_marginBottom="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:background="#55AB68"
+        android:background="@drawable/rounded_button"
         android:onClick="createWorkout"
         android:padding="25px"
         android:text="Create Workout"

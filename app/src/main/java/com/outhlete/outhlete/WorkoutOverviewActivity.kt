@@ -47,41 +47,47 @@ class WorkoutOverviewActivity : FragmentActivity(), OnMapReadyCallback {
         (this.application as App).workout = workout
 
         if (workout.exercises.isEmpty()) { // FIXME Move the workout creation in the first view
+            Toast.makeText(this@WorkoutOverviewActivity, "No workout available", Toast.LENGTH_LONG).show()
             return
         }
 
-        val geoApiContext = GeoApiContext.Builder()
-                .queryRateLimit(3)
-                .apiKey("AIzaSyBq6e5OnxObqIWurfzay99fkCZQDvsVjOU")
-                .connectTimeout(1, TimeUnit.SECONDS)
-                .readTimeout(1, TimeUnit.SECONDS)
-                .writeTimeout(1, TimeUnit.SECONDS)
-                .build()
+        try {
+            val geoApiContext = GeoApiContext.Builder()
+                    .queryRateLimit(3)
+                    .apiKey("AIzaSyBq6e5OnxObqIWurfzay99fkCZQDvsVjOU")
+                    .connectTimeout(3, TimeUnit.SECONDS)
+                    .readTimeout(3, TimeUnit.SECONDS)
+                    .writeTimeout(3, TimeUnit.SECONDS)
+                    .build()
 
-        val directionsApi = DirectionsApiRequest(geoApiContext)
-        directionsApi.mode(TravelMode.WALKING)
-        directionsApi.alternatives(false)
-        directionsApi.departureTime(DateTime.now())
-        directionsApi.origin(workout.exercises.first().encodedStartPosition())
-        directionsApi.destination(workout.exercises.last().encodedEndPosition())
+            val directionsApi = DirectionsApiRequest(geoApiContext)
+            directionsApi.mode(TravelMode.WALKING)
+            directionsApi.alternatives(false)
+            directionsApi.departureTime(DateTime.now())
+            directionsApi.origin(workout.exercises.first().encodedStartPosition())
+            directionsApi.destination(workout.exercises.last().encodedEndPosition())
 
-        val waypoints = workout.wayPoints.slice(1 until workout.wayPoints.lastIndex)
-        directionsApi.waypoints(*waypoints.map { encodeLatLng(it) }.toTypedArray())
+            val waypoints = workout.wayPoints.slice(1 until workout.wayPoints.lastIndex)
+            directionsApi.waypoints(*waypoints.map { encodeLatLng(it) }.toTypedArray())
 
-        val route = directionsApi.await().routes[0]
-        val path = PolyUtil.decode(route.overviewPolyline.encodedPath)
-        googleMap.addPolyline(PolylineOptions().addAll(path).color(Color.rgb(0, 102, 255)))
+            val route = directionsApi.await().routes[0]
+            val path = PolyUtil.decode(route.overviewPolyline.encodedPath)
+            googleMap.addPolyline(PolylineOptions().addAll(path).color(Color.rgb(0, 102, 255)))
 
-        val waypointsButLast = workout.wayPoints.slice(0..workout.wayPoints.lastIndex)
-        for ((index, waypoint) in waypointsButLast.withIndex()) {
-            val position = com.google.maps.model.LatLng(waypoint.latitude, waypoint.longitude)
-            val reversedPosition = GeocodingApi.reverseGeocode(geoApiContext, position).await()[0]
-            googleMap.addMarker(MarkerOptions()
-                    .position(LatLng(waypoint.latitude, waypoint.longitude))
-                    .title("(${index + 1}) ${reversedPosition.formattedAddress}"))
+            val waypointsButLast = workout.wayPoints.slice(0..workout.wayPoints.lastIndex)
+            for ((index, waypoint) in waypointsButLast.withIndex()) {
+                val position = com.google.maps.model.LatLng(waypoint.latitude, waypoint.longitude)
+                val reversedPosition = GeocodingApi.reverseGeocode(geoApiContext, position).await()[0]
+                googleMap.addMarker(MarkerOptions()
+                        .position(LatLng(waypoint.latitude, waypoint.longitude))
+                        .title("(${index + 1}) ${reversedPosition.formattedAddress}"))
+            }
+
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 14f))
+        } catch (e: Throwable) {
+            Toast.makeText(this@WorkoutOverviewActivity, "No workout available", Toast.LENGTH_LONG).show()
+            e.printStackTrace()
         }
-
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 14f))
     }
 
     fun startWorkout(view: View) {
