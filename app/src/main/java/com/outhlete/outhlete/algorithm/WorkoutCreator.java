@@ -37,12 +37,13 @@ public class WorkoutCreator {
 
     public Workout makeWorkout(LatLng start, int duration) {
         List<Exercise> workoutExercises = new ArrayList<>();
-        int scaledDuration = (int)(duration);
-        // FIXME this can be inaccurate due to rounding.
+        //we remove the 5 minutes that we fix for stretching
+        int scaledDuration = duration - 5;
         int warmupDuration = Math.max(5, (int)(scaledDuration * 0.1));
         int muscleDuration = (int)(scaledDuration * 0.45);
         int cardioDuration = (int)(scaledDuration * 0.25);
-        int stretchingDuration = (int)(scaledDuration * 0.1);
+        //we fix it at 5 min
+        int stretchingDuration = 5;
         int coolDownDuration = scaledDuration - warmupDuration - muscleDuration - cardioDuration - stretchingDuration;
 
         //on the base of the time we have we calculate the goals to cover

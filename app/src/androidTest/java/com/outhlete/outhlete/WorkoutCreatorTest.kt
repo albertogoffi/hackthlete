@@ -58,4 +58,26 @@ class WorkoutCreatorTest {
         assertTrue(workout.totalDuration < 100)
         assertTrue(workout.totalDuration > 60)
     }
+
+    @Test
+    fun fromUSITest120min() {
+        // Context of the app under test.
+        val appContext = InstrumentationRegistry.getTargetContext()
+        val start = LatLng(46.010617, 8.958026)
+        val workout = WorkoutCreator().makeWorkout(start, 120)
+        assertTrue(workout.exercises.size > 0)
+        assertTrue(workout.totalDuration < 150)
+        assertTrue(workout.totalDuration > 80)
+    }
+
+    @Test
+    fun fromDanieleHouse120min() {
+        // Context of the app under test.
+        val appContext = InstrumentationRegistry.getTargetContext()
+        val start = LatLng(45.998023, 8.942444)
+        val workout = WorkoutCreator().makeWorkout(start, 120)
+        assertTrue(workout.exercises.size > 0)
+        assertTrue(workout.totalDuration < 150)
+        assertTrue(workout.totalDuration > 80)
+    }
 }
