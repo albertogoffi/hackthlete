@@ -97,9 +97,8 @@
         android:text="Change Location"
         android:textAlignment="textStart"
         android:textAllCaps="false"
-        android:textColor="@android:color/holo_blue_light"
+        android:textColor="#81C8F6"
         android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/durationLabelTextView"
         app:layout_constraintStart_toStartOf="parent" />
 
