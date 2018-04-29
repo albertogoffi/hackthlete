@@ -49,6 +49,8 @@ class ExerciseActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
 
+        exerciseDescriptionView.text = workout.exercises[index].description
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment

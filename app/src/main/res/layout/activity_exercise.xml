@@ -33,7 +33,7 @@
                 android:layout_height="150dp" />
 
             <TextView
-                android:id="@+id/editText"
+                android:id="@+id/exerciseDescriptionView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
