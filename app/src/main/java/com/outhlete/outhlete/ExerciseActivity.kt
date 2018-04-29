@@ -1,22 +1,16 @@
 package com.outhlete.outhlete
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
+import android.os.Environment
+import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.Button
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.maps.DirectionsApiRequest
@@ -25,9 +19,9 @@ import com.google.maps.android.PolyUtil
 import com.google.maps.model.TravelMode
 import com.outhlete.outhlete.domain.Exercise
 import com.outhlete.outhlete.domain.Workout
-import kotlinx.android.synthetic.main.activity_configure_workout.*
 import kotlinx.android.synthetic.main.activity_exercise.*
 import org.joda.time.DateTime
+import java.security.AccessController.getContext
 import java.util.concurrent.TimeUnit
 
 class ExerciseActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -49,7 +43,15 @@ class ExerciseActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
 
-        exerciseDescriptionView.text = workout.exercises[index].description
+        val exercise = workout.exercises[index]
+        val exerciseImage = exercise.image.substringBefore(".")
+        val id = this.resources.getIdentifier(exerciseImage, "drawable", this.packageName)
+
+        imageView.setImageDrawable(getDrawable(id))
+
+        exerciseNameView.text = exercise.name
+        exerciseTargetView.text = "${exercise.goal.description} (${exercise.goal.bodyPart})"
+        exerciseDescriptionView.text = exercise.description
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
