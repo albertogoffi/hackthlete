@@ -33,6 +33,7 @@ public class Workout {
                 this.exercises.add(addAddressToMovingExercises(geoApiContext, exercise));
             }
         }
+        geoApiContext.shutdown();
     }
 
     private Exercise addAddressToMovingExercises(GeoApiContext geoApiContext, Exercise exercise){
