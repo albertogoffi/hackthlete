@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
@@ -15,6 +16,10 @@ import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.activity_configure_workout.*
 import android.os.Vibrator
 import android.widget.Toast
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
+
+
 
 
 class ConfigureWorkoutActivity : AppCompatActivity() {
@@ -31,6 +36,9 @@ class ConfigureWorkoutActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_configure_workout)
+
+        // Make the duration seek bar white.
+        durationSeekBar.progressDrawable.colorFilter = PorterDuffColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY)
 
         durationSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
