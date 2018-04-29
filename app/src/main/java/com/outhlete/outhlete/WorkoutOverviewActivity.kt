@@ -53,9 +53,9 @@ class WorkoutOverviewActivity : FragmentActivity(), OnMapReadyCallback {
         val geoApiContext = GeoApiContext.Builder()
                 .queryRateLimit(3)
                 .apiKey("AIzaSyBq6e5OnxObqIWurfzay99fkCZQDvsVjOU")
-                .connectTimeout(1, TimeUnit.SECONDS)
-                .readTimeout(1, TimeUnit.SECONDS)
-                .writeTimeout(1, TimeUnit.SECONDS)
+                .connectTimeout(3, TimeUnit.SECONDS)
+                .readTimeout(3, TimeUnit.SECONDS)
+                .writeTimeout(3, TimeUnit.SECONDS)
                 .build()
 
         val directionsApi = DirectionsApiRequest(geoApiContext)
