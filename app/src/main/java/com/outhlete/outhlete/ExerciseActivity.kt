@@ -93,6 +93,8 @@ class ExerciseActivity : AppCompatActivity(), OnMapReadyCallback {
             googleMap.addMarker(MarkerOptions().position(path.last()))
             googleMap.moveCamera(CameraUpdateFactory.zoomBy(-3.0f))
         }
+
+        geoApiContext.shutdown()
     }
 
     fun moveToNextExercise(view: View) {
