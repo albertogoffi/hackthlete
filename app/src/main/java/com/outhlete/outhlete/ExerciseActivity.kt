@@ -81,9 +81,6 @@ class ExerciseActivity : AppCompatActivity(), OnMapReadyCallback {
         val path = PolyUtil.decode(route.overviewPolyline.encodedPath)
         googleMap.addPolyline(PolylineOptions().addAll(path).color(Color.rgb(0, 102, 255)))
 
-//        googleMap.addMarker(MarkerOptions().position(path.first()).title("START").icon())
-//        googleMap.addMarker(MarkerOptions().position(path.last()).title("END").icon(null))
-
         val bounds = if (path.first().latitude > path.last().latitude) {
             LatLngBounds(path.last(), path.first())
         } else {
@@ -91,7 +88,11 @@ class ExerciseActivity : AppCompatActivity(), OnMapReadyCallback {
         }
         googleMap.setLatLngBoundsForCameraTarget(bounds)
         googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 40))
-        googleMap.moveCamera(CameraUpdateFactory.zoomTo(14f))
+
+        if (path.first() == path.last()) {
+            googleMap.addMarker(MarkerOptions().position(path.last()))
+            googleMap.moveCamera(CameraUpdateFactory.zoomBy(-3.0f))
+        }
     }
 
     fun moveToNextExercise(view: View) {
