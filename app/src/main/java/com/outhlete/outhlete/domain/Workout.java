@@ -1,7 +1,11 @@
 package com.outhlete.outhlete.domain;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.android.gms.maps.model.LatLng;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,10 +15,10 @@ public class Workout {
     public Workout(final List<Exercise> exercises) {
 
         this.exercises = new ArrayList<>();
-        for(Exercise exercise:exercises){
-            if(exercise instanceof PubliBikeExercise){
+        for (Exercise exercise : exercises) {
+            if (exercise instanceof PubliBikeExercise) {
                 this.exercises.addAll(((PubliBikeExercise) exercise).getSegmentExercises());
-            }else{
+            } else {
                 this.exercises.add(exercise);
             }
         }
@@ -28,17 +32,17 @@ public class Workout {
         return total;
     }
 
-    public List<Exercise> getExercises(){
+    public List<Exercise> getExercises() {
         return this.exercises;
     }
 
-    public List<LatLng> getWayPoints(){
+    public List<LatLng> getWayPoints() {
         List<LatLng> wayPoints = new ArrayList<>();
-        for(Exercise exercise:this.exercises){
-            if(wayPoints.isEmpty() || !wayPoints.get(wayPoints.size()-1).equals(exercise.getStartPosition())){
+        for (Exercise exercise : this.exercises) {
+            if (wayPoints.isEmpty() || !wayPoints.get(wayPoints.size() - 1).equals(exercise.getStartPosition())) {
                 wayPoints.add(exercise.getStartPosition());
             }
-            if(!wayPoints.get(wayPoints.size()-1).equals(exercise.getEndPosition())){
+            if (!wayPoints.get(wayPoints.size() - 1).equals(exercise.getEndPosition())) {
                 wayPoints.add(exercise.getEndPosition());
             }
         }

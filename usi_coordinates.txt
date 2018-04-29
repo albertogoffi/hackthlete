@@ -1,0 +1,2 @@
+Latitude: 46.010774 
+Longitude: 8.958055

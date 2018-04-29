@@ -19,14 +19,18 @@ import com.google.maps.GeocodingApi
 import com.google.maps.PendingResult
 import com.google.maps.android.PolyUtil
 import com.google.maps.model.DirectionsResult
+import com.google.maps.model.DirectionsRoute
 import com.google.maps.model.TravelMode
 import com.outhlete.outhlete.R.id.map
 import com.outhlete.outhlete.algorithm.WorkoutCreator
 import com.outhlete.outhlete.domain.Exercise
+import com.outhlete.outhlete.domain.Workout
 import org.joda.time.DateTime
 import java.util.concurrent.TimeUnit
 
 class WorkoutOverviewActivity : FragmentActivity(), OnMapReadyCallback {
+
+    lateinit var workout: Workout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +43,8 @@ class WorkoutOverviewActivity : FragmentActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         val location = intent.getParcelableExtra<LatLng>(ConfigureWorkoutActivity.EXTRA_LOCATION)
         val duration = intent.getIntExtra(ConfigureWorkoutActivity.EXTRA_DURATION, 60)
-        val workout = WorkoutCreator().makeWorkout(location, duration)
+        workout = WorkoutCreator().makeWorkout(location, duration)
+        (this.application as App).workout = workout
 
         if (workout.exercises.isEmpty()) { // FIXME Move the workout creation in the first view
             return
@@ -80,7 +85,9 @@ class WorkoutOverviewActivity : FragmentActivity(), OnMapReadyCallback {
     }
 
     fun startWorkout(view: View) {
-        val intent = Intent(this, ExerciseActivity::class.java)
+        val intent = Intent(this, ExerciseActivity::class.java).apply {
+            putExtra("index", 0)
+        }
         startActivity(intent)
     }
 

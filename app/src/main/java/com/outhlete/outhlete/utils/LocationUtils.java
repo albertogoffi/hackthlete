@@ -8,8 +8,7 @@ public class LocationUtils {
         return SphericalUtil.computeDistanceBetween(start, end);
     }
 
-    public static double getTravelTime(LatLng start, LatLng end, By by) {
-        double distance = getDistance(start, end);
-        return distance / by.getMetersPerMinute();
+    public static double getTravelTime(LatLng from, LatLng to, By by) {
+        return getDistance(from, to) / by.getMetersPerMinute();
     }
 }

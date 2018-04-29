@@ -1,7 +1,6 @@
 package com.outhlete.outhlete.utils;
 
 public enum By {
-    // FIXME -- check whether these values are realistic.
     WALKING(100.0),
     JOGGING(120.0),
     RUNNING(160.0),

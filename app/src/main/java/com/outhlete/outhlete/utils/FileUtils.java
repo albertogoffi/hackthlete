@@ -18,17 +18,18 @@ public class FileUtils {
         try{
             String file = "res/raw/exercises.csv"; // res/raw/test.txt also work.
             InputStream in = FileUtils.class.getClassLoader().getResourceAsStream(file);
-           // CSVReader reader = new CSVReader(new InputStreamReader(Resources.getSystem().openRawResource(R.raw.exercises)));//Specify asset file name
             CSVReader reader = new CSVReader(new InputStreamReader(in));//Specify asset file name
 
-            //skip first line
+            // Skip first line
             reader.readNext();
             String[] line;
 
             while ((line = reader.readNext()) != null) {
-                if(line.length == 0)
-                        continue;
-                
+
+                if(line.length == 0) {
+                    continue;
+                }
+
                 double startLat = Double.valueOf(line[2]);
                 double startLng = Double.valueOf(line[3]);
                 double endLat = Double.valueOf(line[4]);
