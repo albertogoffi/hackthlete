@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:layout_gravity="center|bottom"
-        android:background="#55AB68"
+        android:background="@drawable/rounded_button"
         android:padding="25px"
         android:text="Start Workout"
         android:textColor="@android:color/white"
