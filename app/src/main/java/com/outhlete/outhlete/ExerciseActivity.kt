@@ -2,9 +2,11 @@ package com.outhlete.outhlete
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
+import android.widget.Button
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -12,35 +14,68 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.PolylineOptions
+import com.google.maps.DirectionsApiRequest
+import com.google.maps.GeoApiContext
+import com.google.maps.android.PolyUtil
+import com.google.maps.model.TravelMode
+import com.outhlete.outhlete.domain.Exercise
+import com.outhlete.outhlete.domain.Workout
+import kotlinx.android.synthetic.main.activity_exercise.*
+import org.joda.time.DateTime
+import java.util.concurrent.TimeUnit
 
 class ExerciseActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var locationProvider: FusedLocationProviderClient
-
-    override fun onMapReady(googleMap: GoogleMap) {
-        locationProvider = LocationServices.getFusedLocationProviderClient(this)
-
-        if (ContextCompat.checkSelfPermission(this,
-                        Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            // Add a marker in Sydney and move the camera
-            locationProvider.lastLocation.addOnSuccessListener {
-                val location = LatLng(it.latitude, it.longitude)
-                googleMap.addMarker(MarkerOptions().position(location).title("START"))
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15f))
-            }
-        }
-    }
+    private lateinit var workout: Workout
+    private var index = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exercise)
 
-
+        workout = (this.application as App).workout
+        index = intent.getIntExtra("index", 0)
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+}
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        val exercise = workout.exercises[index]
+
+        val geoApiContext = GeoApiContext.Builder()
+                .queryRateLimit(3)
+                .apiKey("AIzaSyBq6e5OnxObqIWurfzay99fkCZQDvsVjOU")
+                .connectTimeout(1, TimeUnit.SECONDS)
+                .readTimeout(1, TimeUnit.SECONDS)
+                .writeTimeout(1, TimeUnit.SECONDS)
+                .build()
+
+        val directionsApi = DirectionsApiRequest(geoApiContext)
+        directionsApi.mode(TravelMode.WALKING)
+        directionsApi.alternatives(false)
+        directionsApi.departureTime(DateTime.now())
+        directionsApi.origin(exercise.encodedStartPosition())
+        directionsApi.destination(exercise.encodedEndPosition())
+        val route = directionsApi.await().routes[0]
+        val path = PolyUtil.decode(route.overviewPolyline.encodedPath)
+        googleMap.addPolyline(PolylineOptions().addAll(path).color(Color.rgb(0, 102, 255)))
+
+        googleMap.addMarker(MarkerOptions().position(path.first()).title("START"))
+        googleMap.addMarker(MarkerOptions().position(path.last()).title("END"))
+
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(exercise.startPosition, 14f))
     }
+
+    private fun Exercise.encodedStartPosition() = encodeLatLng(this.startPosition)
+
+    private fun Exercise.encodedEndPosition() = encodeLatLng(this.endPosition)
+
+    private fun encodeLatLng(latLng: LatLng) = "${latLng.latitude},${latLng.longitude}"
 }
