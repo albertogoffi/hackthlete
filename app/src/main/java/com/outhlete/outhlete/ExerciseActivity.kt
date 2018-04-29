@@ -11,6 +11,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.maps.DirectionsApiRequest
@@ -80,10 +81,17 @@ class ExerciseActivity : AppCompatActivity(), OnMapReadyCallback {
         val path = PolyUtil.decode(route.overviewPolyline.encodedPath)
         googleMap.addPolyline(PolylineOptions().addAll(path).color(Color.rgb(0, 102, 255)))
 
-        googleMap.addMarker(MarkerOptions().position(path.first()).title("START"))
-        googleMap.addMarker(MarkerOptions().position(path.last()).title("END"))
+//        googleMap.addMarker(MarkerOptions().position(path.first()).title("START").icon())
+//        googleMap.addMarker(MarkerOptions().position(path.last()).title("END").icon(null))
 
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(exercise.startPosition, 14f))
+        val bounds = if (path.first().latitude > path.last().latitude) {
+            LatLngBounds(path.last(), path.first())
+        } else {
+            LatLngBounds(path.first(), path.last())
+        }
+        googleMap.setLatLngBoundsForCameraTarget(bounds)
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 40))
+        googleMap.moveCamera(CameraUpdateFactory.zoomTo(14f))
     }
 
     fun moveToNextExercise(view: View) {
