@@ -153,6 +153,7 @@
         android:onClick="createWorkout"
         android:padding="25px"
         android:text="Create Workout"
+        android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"

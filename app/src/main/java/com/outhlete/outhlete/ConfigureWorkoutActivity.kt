@@ -13,9 +13,8 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.places.ui.PlacePicker
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.activity_configure_workout.*
-import android.content.Context.VIBRATOR_SERVICE
 import android.os.Vibrator
-
+import android.widget.Toast
 
 
 class ConfigureWorkoutActivity : AppCompatActivity() {
@@ -63,6 +62,8 @@ class ConfigureWorkoutActivity : AppCompatActivity() {
     fun createWorkout(view: View) {
         val vibe = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         vibe.vibrate(100)
+
+        Toast.makeText(applicationContext, "Loading...", Toast.LENGTH_LONG).show()
 
         if (startEndPosition == null) {
             val locationProvider = LocationServices.getFusedLocationProviderClient(this)

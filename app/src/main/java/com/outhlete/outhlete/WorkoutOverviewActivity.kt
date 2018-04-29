@@ -31,6 +31,7 @@ import java.util.concurrent.TimeUnit
 class WorkoutOverviewActivity : FragmentActivity(), OnMapReadyCallback {
 
     lateinit var workout: Workout
+    lateinit var geoApiContext: GeoApiContext
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +53,7 @@ class WorkoutOverviewActivity : FragmentActivity(), OnMapReadyCallback {
         }
 
         try {
-            val geoApiContext = GeoApiContext.Builder()
+            geoApiContext = GeoApiContext.Builder()
                     .queryRateLimit(3)
                     .apiKey("AIzaSyBq6e5OnxObqIWurfzay99fkCZQDvsVjOU")
                     .connectTimeout(3, TimeUnit.SECONDS)
@@ -87,6 +88,8 @@ class WorkoutOverviewActivity : FragmentActivity(), OnMapReadyCallback {
         } catch (e: Throwable) {
             Toast.makeText(this@WorkoutOverviewActivity, "No workout available", Toast.LENGTH_LONG).show()
             e.printStackTrace()
+        } finally {
+            geoApiContext.shutdown()
         }
     }
 
