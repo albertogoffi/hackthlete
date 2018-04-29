@@ -82,6 +82,8 @@ class WorkoutOverviewActivity : FragmentActivity(), OnMapReadyCallback {
         }
 
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 14f))
+
+        geoApiContext.shutdown()
     }
 
     fun startWorkout(view: View) {

@@ -18,5 +18,6 @@
         android:text="Start Workout"
         android:textColor="@android:color/white"
         android:textSize="18sp"
+        android:textAllCaps="false"
         android:onClick="startWorkout"/>
 </fragment>
