@@ -44,11 +44,13 @@ public class Workout {
                 String desc = exercise.getDescription()+reversedPosition.formattedAddress;
                 return new Exercise(exercise.getName(), desc, exercise.getStartPosition(), exercise.getEndPosition(),
                         exercise.getDuration(), exercise.getImage(),exercise.getGoal());
-            }catch(Exception e){}
+            }catch(Exception e){
+                e.printStackTrace();
+                return exercise;
+            }
         }else{
             return exercise;
         }
-        return null;
     }
 
     public int getTotalDuration() {
