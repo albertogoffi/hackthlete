@@ -1,85 +1,81 @@
 NAME,DESCRIPTION,START-LAT,START-LNG,END-LAT,END-LONG,DURATION,IMAGE,GOAL
-Shoulder Wheel,,45.992141,8.947703,45.992141,8.947703,5,,ARMS
-Air Walker,,45.992141,8.947703,45.992141,8.947703,5,,LEGS
-Pull Down,,45.992141,8.947703,45.992141,8.947703,5,,BACK
-Ab Bench,,45.992141,8.947703,45.992141,8.947703,5,,ABS
-Cross Trainer,,45.992141,8.947703,45.992141,8.947703,5,,CHEST
-flessioni,,45.992141,8.947703,45.992141,8.947703,5,,CHEST
-Surfboard,,45.992141,8.947703,45.992141,8.947703,5,,LEGS
-Lumbar Massage,,45.992141,8.947703,45.992141,8.947703,5,,BACK
-Waist Twister,,45.992141,8.947703,45.992141,8.947703,5,,ABS
-Pull-Up Bar,,45.992141,8.947703,45.992141,8.947703,5,,ARMS
-Parallel Bars,,45.992141,8.947703,45.992141,8.947703,5,,ABS
-Horizontal Bars,,45.992141,8.947703,45.992141,8.947703,5,,ABS
-Stretching up1 paradiso,,45.992141,8.947703,45.992141,8.947703,2,,STRETCHING_TOP_BODY
-Stretching core1 paradiso,,45.992141,8.947703,45.992141,8.947703,2,,STRETCHING_CORE_BODY
-Stretching down1 paradiso,,45.992141,8.947703,45.992141,8.947703,2,,STRETCHING_LOW_BODY
-Stretching up2 paradiso,,45.992141,8.947703,45.992141,8.947703,2,,STRETCHING_TOP_BODY
-Stretching core3 paradiso,,45.992141,8.947703,45.992141,8.947703,2,,STRETCHING_CORE_BODY
-Stretching down4 paradiso,,45.992141,8.947703,45.992141,8.947703,2,,STRETCHING_LOW_BODY
-Salita degli Angioli,,46.000142,8.949094,46.000142,8.949094,5,,LEGS
-Stretching up1 salita,,46.000142,8.949094,46.000142,8.949094,2,,STRETCHING_TOP_BODY
-Stretching core1 salita,,46.000142,8.949094,46.000142,8.949094,2,,STRETCHING_CORE_BODY
-Stretching down1 salita,,46.000142,8.949094,46.000142,8.949094,2,,STRETCHING_LOW_BODY
-Stretching up2 salita,,46.000142,8.949094,46.000142,8.949094,2,,STRETCHING_TOP_BODY
-Stretching core3 salita,,46.000142,8.949094,46.000142,8.949094,2,,STRETCHING_CORE_BODY
-Stretching down4 salita,,46.000142,8.949094,46.000142,8.949094,2,,STRETCHING_LOW_BODY
-Bench,,46.001295,8.949916,46.001295,8.949916,5,,ABS
-Stretching up1 bench,,46.001295,8.949916,46.001295,8.949916,2,,STRETCHING_TOP_BODY
-Stretching core1 bench,,46.001295,8.949916,46.001295,8.949916,2,,STRETCHING_CORE_BODY
-Stretching down1 bench,,46.001295,8.949916,46.001295,8.949916,2,,STRETCHING_LOW_BODY
-Stretching up2 bench,,46.001295,8.949916,46.001295,8.949916,2,,STRETCHING_TOP_BODY
-Stretching core3 bench,,46.001295,8.949916,46.001295,8.949916,2,,STRETCHING_CORE_BODY
-Stretching down4 bench,,46.001295,8.949916,46.001295,8.949916,2,,STRETCHING_LOW_BODY
-CIANI,,46.003346,8.960614,46.003346,8.960614,5,,ARMS
-name1,,46.003346,8.960614,46.003346,8.960614,5,,LEGS
-name2,,46.003346,8.960614,46.003346,8.960614,5,,ABS
-name3,,46.003346,8.960614,46.003346,8.960614,5,,ABS
-name4,,46.003346,8.960614,46.003346,8.960614,5,,ARMS
-name5,,46.003346,8.960614,46.003346,8.960614,5,,CHEST
-name6,,46.003346,8.960614,46.003346,8.960614,5,,ARMS
-name7,,46.003346,8.960614,46.003346,8.960614,5,,BACK
-name8,,46.003346,8.960614,46.003346,8.960614,5,,ARMS
-Stretching up1 ciani,,46.003346,8.960614,46.003346,8.960614,2,,STRETCHING_TOP_BODY
-Stretching core1 ciani,,46.003346,8.960614,46.003346,8.960614,2,,STRETCHING_CORE_BODY
-Stretching down1 ciani,,46.003346,8.960614,46.003346,8.960614,2,,STRETCHING_LOW_BODY
-Stretching up2 ciani,,46.003346,8.960614,46.003346,8.960614,2,,STRETCHING_TOP_BODY
-Stretching core3 ciani,,46.003346,8.960614,46.003346,8.960614,2,,STRETCHING_CORE_BODY
-Stretching down4 ciani,,46.003346,8.960614,46.003346,8.960614,2,,STRETCHING_LOW_BODY
-Stadio,,46.024757, 8.960256,46.024757, 8.960256,5,,ARMS
-name1,,46.024757, 8.960256,46.024757, 8.960256,5,,LEGS
-name2,,46.024757, 8.960256,46.024757, 8.960256,5,,ABS
-name3,,46.024757, 8.960256,46.024757, 8.960256,5,,ABS
-name4,,46.024757, 8.960256,46.024757, 8.960256,5,,ARMS
-name5,,46.024757, 8.960256,46.024757, 8.960256,5,,CHEST
-name6,,46.024757, 8.960256,46.024757, 8.960256,5,,ARMS
-name7,,46.024757, 8.960256,46.024757, 8.960256,5,,BACK
-name8,,46.024757, 8.960256,46.024757, 8.960256,5,,ARMS
-Stretching up1 stadio,,46.024757, 8.960256,46.024757, 8.960256,2,,STRETCHING_TOP_BODY
-Stretching core1 stadio,,46.024757, 8.960256,46.024757, 8.960256,2,,STRETCHING_CORE_BODY
-Stretching down1 stadio,,46.024757, 8.960256,46.024757, 8.960256,2,,STRETCHING_LOW_BODY
-Stretching up2 stadio,,46.024757, 8.960256,46.024757, 8.960256,2,,STRETCHING_TOP_BODY
-Stretching core3 stadio,,46.024757, 8.960256,46.024757, 8.960256,2,,STRETCHING_CORE_BODY
-Stretching down4 stadio,,46.024757, 8.960256,46.024757, 8.960256,2,,STRETCHING_LOW_BODY
-Bench in piazza indipendenza,,46.004923, 8.955090,46.004923, 8.955090,5,,ABS
-Bench in piazza indipendenza,,46.004923, 8.955090,46.004923, 8.955090,5,,ARMS
-Stretching up1 bench,,46.004923, 8.955090,46.004923, 8.955090,2,,STRETCHING_TOP_BODY
-Stretching core1 bench,,46.004923, 8.955090,46.004923, 8.955090,2,,STRETCHING_CORE_BODY
-Stretching down1 bench,,46.004923, 8.955090,46.004923, 8.955090,2,,STRETCHING_LOW_BODY
-Stretching up2 bench,,46.004923, 8.955090,46.004923, 8.955090,2,,STRETCHING_TOP_BODY
-Stretching core3 bench,,46.004923, 8.955090,46.004923, 8.955090,2,,STRETCHING_CORE_BODY
-Stretching down4 bench,,46.004923, 8.955090,46.004923, 8.955090,2,,STRETCHING_LOW_BODY
-Bench in parco tassino,,46.001458, 8.946576,46.001458, 8.946576,5,,ABS
-Stretching up1 bench,,46.001458, 8.946576,46.001458, 8.946576,2,,STRETCHING_TOP_BODY
-Stretching core1 bench,,46.001458, 8.946576,46.001458, 8.946576,2,,STRETCHING_CORE_BODY
-Stretching down1 bench,,46.001458, 8.946576,46.001458, 8.946576,2,,STRETCHING_LOW_BODY
-Stretching up2 bench,,46.001458, 8.946576,46.001458, 8.946576,2,,STRETCHING_TOP_BODY
-Stretching core3 bench,,46.001458, 8.946576,46.001458, 8.946576,2,,STRETCHING_CORE_BODY
-Stretching down4 bench,,46.001458, 8.946576,46.001458, 8.946576,2,,STRETCHING_LOW_BODY
-Bench in lungo lago,,45.999297, 8.949597,45.999297, 8.949597,5,,ABS
-Stretching up1 bench,,45.999297, 8.949597,45.999297, 8.949597,2,,STRETCHING_TOP_BODY
-Stretching core1 bench,,45.999297, 8.949597,45.999297, 8.949597,2,,STRETCHING_CORE_BODY
-Stretching down1 bench,,45.999297, 8.949597,45.999297, 8.949597,2,,STRETCHING_LOW_BODY
-Stretching up2 bench,,45.999297, 8.949597,45.999297, 8.949597,2,,STRETCHING_TOP_BODY
-Stretching core3 bench,,45.999297, 8.949597,45.999297, 8.949597,2,,STRETCHING_CORE_BODY
-Stretching down4 bench,,45.999297, 8.949597,45.999297, 8.949597,2,,STRETCHING_LOW_BODY
+Parallel Dips,Do arms dips using the parallel bars. Do 4 session for max repetitions,45.992141,8.947703,45.992141,8.947703,5,parallel.jpg,ARMS
+Air Walker,Use the machine to train your legs while using also your arms. Do 4 session for max repetitions,45.992141,8.947703,45.992141,8.947703,5,ellittica.jpg,LEGS
+Lumbar Pullups,Laying on your weist go up and down with your torso. Do 4 session for max repetitions,45.992141,8.947703,45.992141,8.947703,5,lombari.jpg,BACK
+Surf,While holding yourself at the bars move your lower body left and right. Do 4 session for max repetitions,45.992141,8.947703,45.992141,8.947703,5,surf.jpg,ABS
+Chest Press,While sitting push the bar with your arms. Do 4 session for max repetitions,45.992141,8.947703,45.992141,8.947703,5,chest_press.jpg,CHEST
+Pushups,Use the bars to do pushups. Do 4 session for max repetitions,45.992141,8.947703,45.992141,8.947703,5,bars.jpg,CHEST
+Pullups,Do pullups using the bar. Do 4 session for max repetition,45.992141,8.947703,45.992141,8.947703,5,backbar.jpg,BACK
+Rower,Use your hands move the bar back and fourth like you are rowing. Do 4 session for max repetition,45.992141,8.947703,45.992141,8.947703,5,row.jpg,ABS
+Arms Stretching,While standing push your elbow toward the opposite side,45.992141,8.947703,45.992141,8.947703,2,stretching_top.jpg,STRETCHING_TOP_BODY
+Abdominal Stretching,Lay on the ground and pull your torso up while looking up,45.992141,8.947703,45.992141,8.947703,2,stretching_core.jpg,STRETCHING_CORE_BODY
+Legs Stretching,Sit on the ground with your legs open apart and try to grab one of your feet,45.992141,8.947703,45.992141,8.947703,2,stretching_legs.jpg,STRETCHING_LOW_BODY
+Shoulders Stretching,While standing try touch your hans behind your back,45.992141,8.947703,45.992141,8.947703,2,stretching_top2.jpg,STRETCHING_TOP_BODY
+Back Stretching,Lay with your chest on your laps and try push your arms forward,45.992141,8.947703,45.992141,8.947703,2,stretching_core2.jpg,STRETCHING_CORE_BODY
+Thigh Stretching,While standing push your foot on the backside of your leg,45.992141,8.947703,45.992141,8.947703,2,stretching_legs2.jpg,STRETCHING_LOW_BODY
+Staircase Running,Run up and down the stairs for 5 minutes,46.000142,8.949094,46.000142,8.949094,5,scalinata.jpg,LEGS
+Arms Stretching,While standing push your elbow toward the opposite side,46.000142,8.949094,46.000142,8.949094,2,stretching_top.jpg,STRETCHING_TOP_BODY
+Abdominal Stretching,Lay on the ground and pull your torso up while looking up,46.000142,8.949094,46.000142,8.949094,2,stretching_core.jpg,STRETCHING_CORE_BODY
+Legs Stretching,Sit on the ground with your legs open apart and try to grab one of your feet,46.000142,8.949094,46.000142,8.949094,2,stretching_legs.jpg,STRETCHING_LOW_BODY
+Arms Stretching,While standing push your elbow toward the opposite side,46.000142,8.949094,46.000142,8.949094,2,stretching_top2.jpg,STRETCHING_TOP_BODY
+Back Stretching,Lay with your chest on your laps and try push your arms forward,46.000142,8.949094,46.000142,8.949094,2,stretching_core2.jpg,STRETCHING_CORE_BODY
+Thigh Stretching,While standing push your foot on the backside of your leg,46.000142,8.949094,46.000142,8.949094,2,stretching_legs2.jpg,STRETCHING_LOW_BODY
+Crunches,While laying on the bench move tour head towards your knees. Do 4 session for max repetitions,46.001295,8.949916,46.001295,8.949916,5,bench.jpg,ABS
+Arms Stretching,While standing push your elbow toward the opposite side,46.001295,8.949916,46.001295,8.949916,2,stretching_top.jpg,STRETCHING_TOP_BODY
+Abdominal Stretching,Lay on the ground and pull your torso up while looking up,46.001295,8.949916,46.001295,8.949916,2,stretching_core.jpg,STRETCHING_CORE_BODY
+Legs Stretching,Sit on the ground with your legs open apart and try to grab one of your feet,46.001295,8.949916,46.001295,8.949916,2,stretching_legs.jpg,STRETCHING_LOW_BODY
+Arms Stretching,While standing push your elbow toward the opposite side,46.001295,8.949916,46.001295,8.949916,2,stretching_top2.jpg,STRETCHING_TOP_BODY
+Back Stretching,Lay with your chest on your laps and try push your arms forward,46.001295,8.949916,46.001295,8.949916,2,stretching_core2.jpg,STRETCHING_CORE_BODY
+Thigh Stretching,While standing push your foot on the backside of your leg,46.001295,8.949916,46.001295,8.949916,2,stretching_legs2.jpg,STRETCHING_LOW_BODY
+Parallel Dips,Do arms dips using the parallel bars. Do 4 session for max repetitions,46.003346,8.960614,46.003346,8.960614,5,parallel.jpg,ARMS
+Air Walker,Use the machine to train your legs while using also your arms. Do 4 session for max repetitions,46.003346,8.960614,46.003346,8.960614,5,ellittica.jpg,LEGS
+Reverse Crunch,Hold yourself to the bench using your arms and bring your knees to your chest. Do 4 session for max repetitions,46.003346,8.960614,46.003346,8.960614,5,reverted_crunch.jpg,ABS
+Surf,While holding yourself at the bars move your lower body left and right. Do 4 session for max repetitions,46.003346,8.960614,46.003346,8.960614,5,surf.jpg,ABS
+Pushups,Use the bars to do pushups. Do 4 session for max repetitions,46.003346,8.960614,46.003346,8.960614,5,bars.jpg,CHEST
+Pullups,Do pullups using the bar. Do 4 session for max repetition,46.003346,8.960614,46.003346,8.960614,5,backbar.jpg,BACK
+Chest Press,While sitting push the bar with your arms. Do 4 session for max repetitions,46.003346,8.960614,46.003346,8.960614,5,chest_press.jpg,CHEST
+Rower,Use your hands move the bar back and fourth like you are rowing. Do 4 session for max repetition,46.003346,8.960614,46.003346,8.960614,5,row.jpg,ABS
+Lumbar Pullups,Laying on your weist go up and down with your torso. Do 4 session for max repetitions,46.003346,8.960614,46.003346,8.960614,5,lombari.jpg,BACK
+Arms Stretching,While standing push your elbow toward the opposite side,46.003346,8.960614,46.003346,8.960614,2,stretching_top.jpg,STRETCHING_TOP_BODY
+Abdominal Stretching,Lay on the ground and pull your torso up while looking up,46.003346,8.960614,46.003346,8.960614,2,stretching_core.jpg,STRETCHING_CORE_BODY
+Legs Stretching,Sit on the ground with your legs open apart and try to grab one of your feet,46.003346,8.960614,46.003346,8.960614,2,stretching_legs.jpg,STRETCHING_LOW_BODY
+Arms Stretching,While standing push your elbow toward the opposite side,46.003346,8.960614,46.003346,8.960614,2,stretching_top2.jpg,STRETCHING_TOP_BODY
+Back Stretching,Lay with your chest on your laps and try push your arms forward,46.003346,8.960614,46.003346,8.960614,2,stretching_core2.jpg,STRETCHING_CORE_BODY
+Thigh Stretching,While standing push your foot on the backside of your leg,46.003346,8.960614,46.003346,8.960614,2,stretching_legs2.jpg,STRETCHING_LOW_BODY
+Parallel Dips,Do arms dips using the parallel bars. Do 4 session for max repetitions,46.024757, 8.960256,46.024757, 8.960256,5,parallel.jpg,ARMS
+Air Walker,Use the machine to train your legs while using also your arms,46.024757, 8.960256,46.024757, 8.960256,5,ellittica.jpg,LEGS
+Reverse Crunch,Hold yourself to the bench using your arms and bring your knees to your chest. Do 4 session for max repetitions,46.024757, 8.960256,46.024757, 8.960256,5,reverted_crunch.jpg,ABS
+Surf,While holding yourself at the bars move your lower body left and right. Do 4 session for max repetitions,46.003346,8.960614,46.003346,8.960614,5,surf.jpg,ABS
+Pushups,Use the bars to do pushups. Do 4 session for max repetitions,46.024757, 8.960256,46.024757, 8.960256,5,bars.jpg,CHEST
+Pullups,Do pullups using the bar. Do 4 session for max repetition,46.024757, 8.960256,46.024757, 8.960256,5,backbar.jpg,BACK
+Chest Press,While sitting push the bar with your arms. Do 4 session for max repetitions,46.024757, 8.960256,46.024757, 8.960256,5,chest_press.jpg,CHEST
+Rower,Use your hands move the bar back and fourth like you are rowing. Do 4 session for max repetition,46.024757, 8.960256,46.024757, 8.960256,5,row.jpg,ABS
+Lumbar Pullups,Laying on your weist go up and down with your torso. Do 4 session for max repetitions,46.024757, 8.960256,46.024757, 8.960256,5,lombari.jpg,BACK
+Arms Stretching,While standing push your elbow toward the opposite side,46.024757, 8.960256,46.024757, 8.960256,2,stretching_top.jpg,STRETCHING_TOP_BODY
+Abdominal Stretching,Lay on the ground and pull your torso up while looking up,46.024757, 8.960256,46.024757, 8.960256,2,stretching_core.jpg,STRETCHING_CORE_BODY
+Legs Stretching,Sit on the ground with your legs open apart and try to grab one of your feet,46.024757, 8.960256,46.024757, 8.960256,2,stretching_legs.jpg,STRETCHING_LOW_BODY
+Arms Stretching,While standing push your elbow toward the opposite side,46.024757, 8.960256,46.024757, 8.960256,2,stretching_top2.jpg,STRETCHING_TOP_BODY
+Back Stretching,Lay with your chest on your laps and try push your arms forward,46.024757, 8.960256,46.024757, 8.960256,2,stretching_core2.jpg,STRETCHING_CORE_BODY
+Thigh Stretching,While standing push your foot on the backside of your leg,46.024757, 8.960256,46.024757, 8.960256,2,stretching_legs2.jpg,STRETCHING_LOW_BODY
+Crunches,While laying on the bench move tour head towards your knees. Do 4 session for max repetitions,46.004923, 8.955090,46.004923, 8.955090,5,bench2.jpg,ABS
+Bench Dips,Do arms dips using the bench. Do 4 session for max repetitions,46.004923, 8.955090,46.004923, 8.955090,5,bench2.jpg,ARMS
+Arms Stretching,While standing push your elbow toward the opposite side,46.004923, 8.955090,46.004923, 8.955090,2,stretching_top.jpg,STRETCHING_TOP_BODY
+Abdominal Stretching,Lay on the ground and pull your torso up while looking up,46.004923, 8.955090,46.004923, 8.955090,2,stretching_core.jpg,STRETCHING_CORE_BODY
+Legs Stretching,Sit on the ground with your legs open apart and try to grab one of your feet,46.004923, 8.955090,46.004923, 8.955090,2,stretching_legs.jpg,STRETCHING_LOW_BODY
+Arms Stretching,While standing push your elbow toward the opposite side,46.004923, 8.955090,46.004923, 8.955090,2,stretching_top2.jpg,STRETCHING_TOP_BODY
+Back Stretching,Lay with your chest on your laps and try push your arms forward,46.004923, 8.955090,46.004923, 8.955090,2,stretching_core2.jpg,STRETCHING_CORE_BODY
+Thigh Stretching,While standing push your foot on the backside of your leg,46.004923, 8.955090,46.004923, 8.955090,2,stretching_legs2.jpg,STRETCHING_LOW_BODY
+Crunches,While laying on the bench move tour head towards your knees. Do 4 session for max repetitions,46.001458, 8.946576,46.001458, 8.946576,5,bench.jpg,ABS
+Arms Stretching,While standing push your elbow toward the opposite side,46.001458, 8.946576,46.001458, 8.946576,2,stretching_top.jpg,STRETCHING_TOP_BODY
+Abdominal Stretching,Lay on the ground and pull your torso up while looking up,46.001458, 8.946576,46.001458, 8.946576,2,stretching_core.jpg,STRETCHING_CORE_BODY
+Legs Stretching,Sit on the ground with your legs open apart and try to grab one of your feet,46.001458, 8.946576,46.001458, 8.946576,2,stretching_legs.jpg,STRETCHING_LOW_BODY
+Arms Stretching,While standing push your elbow toward the opposite side,46.001458, 8.946576,46.001458, 8.946576,2,stretching_top2.jpg,STRETCHING_TOP_BODY
+Back Stretching,Lay with your chest on your laps and try push your arms forward,46.001458, 8.946576,46.001458, 8.946576,2,stretching_core2.jpg,STRETCHING_CORE_BODY
+Thigh Stretching,While standing push your foot on the backside of your leg,46.001458, 8.946576,46.001458, 8.946576,2,stretching_legs2.jpg,STRETCHING_LOW_BODY
+Crunches,While laying on the bench move tour head towards your knees. Do 4 session for max repetitions,45.999297, 8.949597,45.999297, 8.949597,5,bench.jpg,ABS
+Arms Stretching,While standing push your elbow toward the opposite side,45.999297, 8.949597,45.999297, 8.949597,2,stretching_top.jpg,STRETCHING_TOP_BODY
+Abdominal Stretching,Lay on the ground and pull your torso up while looking up,45.999297, 8.949597,45.999297, 8.949597,2,stretching_core.jpg,STRETCHING_CORE_BODY
+Legs Stretching,Sit on the ground with your legs open apart and try to grab one of your feet,45.999297, 8.949597,45.999297, 8.949597,2,stretching_legs.jpg,STRETCHING_LOW_BODY
+Arms Stretching,While standing push your elbow toward the opposite side,45.999297, 8.949597,45.999297, 8.949597,2,stretching_top2.jpg,STRETCHING_TOP_BODY
+Back Stretching,Lay with your chest on your laps and try push your arms forward,45.999297, 8.949597,45.999297, 8.949597,2,stretching_core.jpg,STRETCHING_CORE_BODY
+Thigh Stretching,While standing push your foot on the backside of your leg,45.999297, 8.949597,45.999297, 8.949597,2,stretching_legs2.jpg,STRETCHING_LOW_BODY

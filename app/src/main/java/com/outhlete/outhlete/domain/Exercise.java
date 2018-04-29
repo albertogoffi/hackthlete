@@ -4,7 +4,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.outhlete.outhlete.utils.By;
 import com.outhlete.outhlete.utils.LocationUtils;
 
-
 public class Exercise {
     private final String name;
     private final String description;
@@ -59,31 +58,32 @@ public class Exercise {
 
     public static Exercise buildRunningExercise(LatLng start, LatLng end, Goal goal){
 
-        //TODO: fix description and image URL
         double travelTimeJogging = 0;
         String name;
+        String image;
         switch(goal){
             case WARM_UP:
             case COOL_DOWN:
                  travelTimeJogging = LocationUtils.getTravelTime(start, end, By.JOGGING);
                  name = "Jogging";
+                 image = "jogging.jpg";
                  break;
             case CARDIO:
                 travelTimeJogging = LocationUtils.getTravelTime(start, end, By.RUNNING);
                 name = "Running";
+                image = "cardio.jpg";
                 break;
             default:
                 throw new RuntimeException("error");
         }
-        Exercise running = new Exercise(name, "Jog until point", start,  end, (int)travelTimeJogging, null, goal);
+        Exercise running = new Exercise(name, "Jog until point", start,  end, (int)travelTimeJogging, image, goal);
         return running;
     }
 
     public static Exercise buildBikingExercise(LatLng start, LatLng end, Goal goal){
 
-        //TODO: fix description and image URL
         double travelTimeBiking = LocationUtils.getTravelTime(start, end, By.BIKING);
-        Exercise jogging = new Exercise("Biking", "Ride Bike until point", start,  end, (int)travelTimeBiking, null, goal);
+        Exercise jogging = new Exercise("Biking", "Ride Bike until point", start,  end, (int)travelTimeBiking, "bike.jpg", goal);
         return jogging;
     }
 }

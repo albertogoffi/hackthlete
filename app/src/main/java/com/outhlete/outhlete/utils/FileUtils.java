@@ -28,7 +28,7 @@ public class FileUtils {
             while ((line = reader.readNext()) != null) {
                 if(line.length == 0)
                         continue;
-
+                
                 double startLat = Double.valueOf(line[2]);
                 double startLng = Double.valueOf(line[3]);
                 double endLat = Double.valueOf(line[4]);
@@ -64,11 +64,15 @@ public class FileUtils {
                     default:
                         throw new RuntimeException("error");
                 }
+                if(line[7].trim().length()==0){
+                    throw new RuntimeException("Error. Missing image.");
+                }
                 Exercise exercise = new Exercise(line[0], line[1], start, end, Integer.valueOf(line[6]), line[7], goal);
                 exercises.add(exercise);
             }
         }catch(Exception e){
             e.printStackTrace();
+            throw new RuntimeException("Error");
         }
         return exercises;
     }
