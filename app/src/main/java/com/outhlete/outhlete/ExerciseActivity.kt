@@ -55,8 +55,7 @@ class ExerciseActivity : AppCompatActivity(), OnMapReadyCallback {
         exerciseDescriptionView.text = exercise.description
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        val mapFragment = supportFragmentManager
-                .findFragmentById(R.id.map) as SupportMapFragment
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
@@ -81,17 +80,14 @@ class ExerciseActivity : AppCompatActivity(), OnMapReadyCallback {
         val path = PolyUtil.decode(route.overviewPolyline.encodedPath)
         googleMap.addPolyline(PolylineOptions().addAll(path).color(Color.rgb(0, 102, 255)))
 
-        val bounds = if (path.first().latitude > path.last().latitude) {
-            LatLngBounds(path.last(), path.first())
-        } else {
-            LatLngBounds(path.first(), path.last())
-        }
-        googleMap.setLatLngBoundsForCameraTarget(bounds)
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 40))
-
-        if (path.first() == path.last()) {
+        val startPosition = LatLng(path.first().latitude, path.first().longitude)
+        val endPosition = LatLng(path.last().latitude, path.last().longitude)
+        if (startPosition == endPosition) {
             googleMap.addMarker(MarkerOptions().position(path.last()))
-            googleMap.moveCamera(CameraUpdateFactory.zoomBy(-3.0f))
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(endPosition, 18f))
+        } else {
+            val bounds = LatLngBounds.builder().include(startPosition).include(endPosition).build()
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 40))
         }
 
         geoApiContext.shutdown()
