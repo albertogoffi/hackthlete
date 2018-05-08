@@ -29,10 +29,12 @@ every muscle exercise lasts 5 minutes
 public class WorkoutCreator {
     private final List<Exercise> exercises;
     private final List<PubliBikeStation> stations;
+    private final String googleApiKey;
 
-    public WorkoutCreator() {
+    public WorkoutCreator(String googleApiKey) {
         this.exercises = FileUtils.loadExercisesFromCSV();
         this.stations = FileUtils.loadPubliBikeStationsFromCSV();
+        this.googleApiKey = googleApiKey;
     }
 
     public Workout makeWorkout(LatLng start, int duration) {
@@ -137,11 +139,11 @@ public class WorkoutCreator {
                 workoutExercises.add(selectedCardio);
                 workoutExercises.addAll(newMuscleExercise);
                 workoutExercises.add(possibleCooldowns.get(0));
-                return new Workout(workoutExercises);
+                return new Workout(workoutExercises, googleApiKey);
             }
         }
 
-        return new Workout(workoutExercises);
+        return new Workout(workoutExercises, googleApiKey);
     }
 
     private PubliBikeExercise getTravelUsingPubliBike(LatLng start, LatLng end, Goal goal) {

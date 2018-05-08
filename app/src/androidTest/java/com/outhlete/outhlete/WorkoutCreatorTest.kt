@@ -15,12 +15,13 @@ import org.junit.runner.RunWith
  */
 @RunWith(AndroidJUnit4::class)
 class WorkoutCreatorTest {
+
     @Test
     fun fromUSITest() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
         val start = LatLng(46.010617, 8.958026)
-        val workout = WorkoutCreator().makeWorkout(start, 60)
+        val workout = WorkoutCreator(appContext.getString(R.string.google_maps_key)).makeWorkout(start, 60)
         assertTrue(workout.exercises.size > 0)
         assertTrue(workout.totalDuration < 75)
         assertTrue(workout.totalDuration > 45)
@@ -31,7 +32,7 @@ class WorkoutCreatorTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
         val start = LatLng(45.998023, 8.942444)
-        val workout = WorkoutCreator().makeWorkout(start, 60)
+        val workout = WorkoutCreator(appContext.getString(R.string.google_maps_key)).makeWorkout(start, 60)
         assertTrue(workout.exercises.size > 0)
         assertTrue(workout.totalDuration < 75)
         assertTrue(workout.totalDuration > 45)
@@ -42,7 +43,7 @@ class WorkoutCreatorTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
         val start = LatLng(46.010617, 8.958026)
-        val workout = WorkoutCreator().makeWorkout(start, 75)
+        val workout = WorkoutCreator(appContext.getString(R.string.google_maps_key)).makeWorkout(start, 75)
         assertTrue(workout.exercises.size > 0)
         assertTrue(workout.totalDuration < 100)
         assertTrue(workout.totalDuration > 60)
@@ -53,7 +54,7 @@ class WorkoutCreatorTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
         val start = LatLng(45.998023, 8.942444)
-        val workout = WorkoutCreator().makeWorkout(start, 75)
+        val workout = WorkoutCreator(appContext.getString(R.string.google_maps_key)).makeWorkout(start, 75)
         assertTrue(workout.exercises.size > 0)
         assertTrue(workout.totalDuration < 100)
         assertTrue(workout.totalDuration > 60)
@@ -64,7 +65,7 @@ class WorkoutCreatorTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
         val start = LatLng(46.010617, 8.958026)
-        val workout = WorkoutCreator().makeWorkout(start, 120)
+        val workout = WorkoutCreator(appContext.getString(R.string.google_maps_key)).makeWorkout(start, 120)
         assertTrue(workout.exercises.size > 0)
         assertTrue(workout.totalDuration < 150)
         assertTrue(workout.totalDuration > 80)
@@ -75,7 +76,7 @@ class WorkoutCreatorTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
         val start = LatLng(45.998023, 8.942444)
-        val workout = WorkoutCreator().makeWorkout(start, 120)
+        val workout = WorkoutCreator(appContext.getString(R.string.google_maps_key)).makeWorkout(start, 120)
         assertTrue(workout.exercises.size > 0)
         assertTrue(workout.totalDuration < 150)
         assertTrue(workout.totalDuration > 80)

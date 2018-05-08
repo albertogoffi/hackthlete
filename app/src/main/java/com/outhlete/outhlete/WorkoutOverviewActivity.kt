@@ -44,7 +44,7 @@ class WorkoutOverviewActivity : FragmentActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         val location = intent.getParcelableExtra<LatLng>(ConfigureWorkoutActivity.EXTRA_LOCATION)
         val duration = intent.getIntExtra(ConfigureWorkoutActivity.EXTRA_DURATION, 60)
-        workout = WorkoutCreator().makeWorkout(location, duration)
+        workout = WorkoutCreator(getString(R.string.google_maps_key)).makeWorkout(location, duration)
         (this.application as App).workout = workout
 
         if (workout.exercises.isEmpty()) { // FIXME Move the workout creation in the first view
@@ -55,7 +55,7 @@ class WorkoutOverviewActivity : FragmentActivity(), OnMapReadyCallback {
         try {
             geoApiContext = GeoApiContext.Builder()
                     .queryRateLimit(3)
-                    .apiKey("AIzaSyBq6e5OnxObqIWurfzay99fkCZQDvsVjOU")
+                    .apiKey(getString(R.string.google_maps_key))
                     .connectTimeout(3, TimeUnit.SECONDS)
                     .readTimeout(3, TimeUnit.SECONDS)
                     .writeTimeout(3, TimeUnit.SECONDS)

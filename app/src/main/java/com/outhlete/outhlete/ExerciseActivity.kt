@@ -64,7 +64,7 @@ class ExerciseActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val geoApiContext = GeoApiContext.Builder()
                 .queryRateLimit(3)
-                .apiKey("AIzaSyBq6e5OnxObqIWurfzay99fkCZQDvsVjOU")
+                .apiKey(getString(R.string.google_maps_key))
                 .connectTimeout(1, TimeUnit.SECONDS)
                 .readTimeout(1, TimeUnit.SECONDS)
                 .writeTimeout(1, TimeUnit.SECONDS)

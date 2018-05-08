@@ -4,6 +4,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
 import com.google.maps.model.GeocodingResult;
+import com.outhlete.outhlete.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +13,11 @@ import java.util.concurrent.TimeUnit;
 public class Workout {
     private final List<Exercise> exercises;
 
-    public Workout(final List<Exercise> exercises) {
+    public Workout(final List<Exercise> exercises, String googleApiKey) {
 
         GeoApiContext geoApiContext = new GeoApiContext.Builder()
                 .queryRateLimit(3)
-                .apiKey("AIzaSyBq6e5OnxObqIWurfzay99fkCZQDvsVjOU")
+                .apiKey(googleApiKey)
                 .connectTimeout(1, TimeUnit.SECONDS)
                 .readTimeout(1, TimeUnit.SECONDS)
                 .writeTimeout(1, TimeUnit.SECONDS)
