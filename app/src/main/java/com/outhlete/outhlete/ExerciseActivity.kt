@@ -86,7 +86,11 @@ class ExerciseActivity : AppCompatActivity(), OnMapReadyCallback {
             googleMap.addMarker(MarkerOptions().position(path.last()))
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(endPosition, 18f))
         } else {
-            val bounds = LatLngBounds.builder().include(startPosition).include(endPosition).build()
+            val boundsBuilder = LatLngBounds.builder()
+            for (leg in path) {
+                boundsBuilder.include(leg)
+            }
+            val bounds = boundsBuilder.build()
             googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 40))
         }
 
