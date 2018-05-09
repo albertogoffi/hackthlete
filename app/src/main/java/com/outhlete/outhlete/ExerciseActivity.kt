@@ -82,16 +82,13 @@ class ExerciseActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val startPosition = LatLng(path.first().latitude, path.first().longitude)
         val endPosition = LatLng(path.last().latitude, path.last().longitude)
+        googleMap.addMarker(MarkerOptions().position(path.last()))
         if (startPosition == endPosition) {
-            googleMap.addMarker(MarkerOptions().position(path.last()))
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(endPosition, 18f))
         } else {
             val boundsBuilder = LatLngBounds.builder()
-            for (leg in path) {
-                boundsBuilder.include(leg)
-            }
-            val bounds = boundsBuilder.build()
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 40))
+            path.forEach { leg -> boundsBuilder.include(leg) }
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 40))
         }
 
         geoApiContext.shutdown()
