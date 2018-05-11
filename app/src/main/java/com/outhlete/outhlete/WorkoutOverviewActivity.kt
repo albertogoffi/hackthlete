@@ -16,10 +16,7 @@ import com.google.android.gms.maps.model.PolylineOptions
 import com.google.maps.DirectionsApiRequest
 import com.google.maps.GeoApiContext
 import com.google.maps.GeocodingApi
-import com.google.maps.PendingResult
 import com.google.maps.android.PolyUtil
-import com.google.maps.model.DirectionsResult
-import com.google.maps.model.DirectionsRoute
 import com.google.maps.model.TravelMode
 import com.outhlete.outhlete.R.id.map
 import com.outhlete.outhlete.algorithm.WorkoutCreator
